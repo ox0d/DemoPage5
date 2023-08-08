@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Exercises</title>
+
+    <!-- Importing Vue CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- Importing Fontawsome Kit -->
+    <script
+      src="https://kit.fontawesome.com/75d3903519.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Importing Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <!-- Exercise 1 -->
+        <div class="row my-4 border-bottom">
+          <div class="col-2"></div>
+          <div class="col-8">
+            <h3>Exercise 1</h3>
+            <p>{{message}}</p>
+          </div>
+          <div class="col-2"></div>
+        </div>
+        <!-- Exercise 2 -->
+        <div class="row mb-3 border-bottom">
+          <div class="col-2"></div>
+          <div class="col-8">
+            <h3>Exercise 2</h3>
+            <span class="px-2 pb-2 display-6 d-flex justify-content-center"
+              >{{counter}}</span
+            >
+            <pre
+              v-if="triggerCounterError"
+              class="d-flex justify-content-center text-danger"
+            ><strong>Warning: </strong>Subtraction Result Cannot Be Negative</pre>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center pb-4">
+              <button
+                class="btn btn-success me-md-2"
+                type="button"
+                v-on:click="addToCounter"
+              >
+                <i class="fa-solid fa-plus"></i>
+              </button>
+              <button
+                class="btn btn-outline-secondary"
+                type="button"
+                v-on:click="subtractFromCounter"
+              >
+                <i class="fa-solid fa-minus"></i>
+              </button>
+            </div>
+          </div>
+          <div class="col-2"></div>
+        </div>
+        <!-- Exercise 3 -->
+        <div class="row mb-3 border-bottom">
+          <div class="col-12 mb-2">
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col-8">
+                <h3>Exercise 3</h3>
+              </div>
+              <div class="col-2"></div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-3"></div>
+            <div class="col-6">
+              <form class="mb-3">
+                <div class="input-group mb-2">
+                  <span class="input-group-text">About</span>
+                  <textarea
+                    class="form-control"
+                    style="max-height: 200px; min-height: 62px"
+                    v-model="inputValue"
+                  ></textarea>
+                </div>
+              </form>
+              <div v-if="inputValue != ''" class="border p-2 rounded">
+                <h6>You typed:</h6>
+                <p>{{ inputValue }}</p>
+              </div>
+            </div>
+            <div class="col-3"></div>
+          </div>
+        </div>
+        <!-- Exercise 4 -->
+        <div class="row mb-3 border-bottom">
+          <div class="col-12 mb-2">
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col-8">
+                <h3>Exercise 4</h3>
+              </div>
+              <div class="col-2"></div>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-2"></div>
+            <div class="col-8">
+              <img
+                v-if="imageStatus"
+                src="./assets/images/nobodylooking.jpg"
+                class="rounded mx-auto mb-4 d-block"
+                style="width: 30%"
+              />
+              <button
+                v-if="!imageStatus"
+                class="btn btn-primary mx-auto d-block"
+                type="button"
+                v-on:click="showImage"
+              >
+                Show Image
+              </button>
+              <button
+                v-else
+                class="btn btn-outline-primary mx-auto d-block"
+                type="button"
+                v-on:click="hideImage"
+              >
+                Hide Image
+              </button>
+            </div>
+            <div class="col-2"></div>
+          </div>
+        </div>
+        <!-- Exercise 5 -->
+        <div class="row mb-3 border-bottom">
+          <div class="col-12 mb-2">
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col-8">
+                <h3>Exercise 5</h3>
+              </div>
+              <div class="col-2"></div>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-4 mx-auto">
+              <ul class="list-group">
+                <li
+                  v-for="value in items"
+                  v-bind:key="value.id"
+                  class="list-group-item d-flex justify-content-between align-items-start"
+                >
+                  <div class="ms-2 me-auto">
+                    <div class="fw-bold">{{ value.name }}</div>
+                    {{ value.description }}
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Exercise 7 -->
+        <div class="row mb-3 border-bottom">
+          <div class="col-12 mb-2">
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col-8">
+                <h3>Exercise 6</h3>
+              </div>
+              <div class="col-2"></div>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-4 mx-auto">
+              <todo-item
+                v-for="value in todos"
+                v-bind:key="value.id"
+                v-bind:todo="value"
+              ></todo-item>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3 border-bottom">
+          <div class="col-12 mb-2">
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col-8">
+                <h3>Exercise 7</h3>
+              </div>
+              <div class="col-2"></div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-6 mx-auto">
+              <form>
+                <div class="row">
+                  <div class="col-12 text-center mb-3">
+                    <h5>Calculate area of a rectangle</h5>
+                  </div>
+                  <div class="col-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text">Width</span>
+                      <input
+                        type="text"
+                        class="form-control"
+                        v-model.number="width"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text">Height</span>
+                      <input
+                        type="text"
+                        class="form-control"
+                        v-model.number="height"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <div
+                v-if="width != '' && height != ''"
+                class="border px-2 pt-3 rounded"
+              >
+                <h6>The calculated area is:</h6>
+                <p>{{ area }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Exercise 8 -->
+        <div class="row mb-3 border-bottom">
+          <div class="col-12 mb-2">
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col-8">
+                <h3>Exercise 8</h3>
+              </div>
+              <div class="col-2"></div>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-4 mx-auto text-center">
+              <button
+                type="button"
+                class="btn"
+                v-bind:class="[buttonState ? primary : secondary]"
+                v-on:click="updateButtonState"
+              >
+                Click to Change Button Color
+              </button>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-4 mx-auto text-center">
+              <div class="input-group mb-3">
+                <span class="input-group-text">Font Size</span>
+                <input
+                  type="text"
+                  class="form-control"
+                  v-model.trim="userFontSize"
+                />
+                <span class="input-group-text">px</span>
+              </div>
+              <p v-bind:style="{'font-size': userFontSize}">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est,
+                sunt aut minus vel possimus error, fugit asperiores molestias
+                voluptates aperiam.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Importing Vue App -->
+    <script src="./main.js"></script>
+
+    <!-- Importing Components -->
+    <script src="./components/TodoItem.js"></script>
+
+    <!-- Mounting App -->
+    <script>
+      const mountedApp = app.mount("#app");
+    </script>
+
+    <!-- Importing Bootstrap Js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

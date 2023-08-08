@@ -1,0 +1,23 @@
+Exercise 1: Data Binding and Interpolation
+Create a Vue instance with a data property called "message" and initialize it with a string. Bind this message to a paragraph element in your template so that it updates dynamically as you change the value of "message".
+
+Exercise 2: Event Handling
+Add a button to your template. When clicked, the button should trigger a method that increments a counter stored in your data. Display the counter value somewhere in your template.
+
+Exercise 3: Two-Way Binding
+Create an input field that's bound to a data property called "inputValue". Below the input field, display the value of "inputValue" within a paragraph element. Make sure that changes in the input field are reflected in the paragraph, and vice versa.
+
+Exercise 4: Conditional Rendering
+Create a div that contains an image and a button. Initially, the image should be hidden. When the button is clicked, toggle the visibility of the image using a boolean data property.
+
+Exercise 5: List Rendering
+Create an array of items in your data, each with a "name" property. Use the v-for directive to render an unordered list of these items, displaying their names.
+
+Exercise 6: Component Composition
+Create a simple Vue component for a "TodoItem". This component should take a "todo" prop and display its content. Use this component to render a list of "TodoItem" components, passing different todos as props.
+
+Exercise 7: Computed Properties
+In your Vue instance, create data properties "width" and "height". Add a computed property called "area" that calculates the area of a rectangle using the width and height. Display the calculated area in your template.
+
+Exercise 8: Binding CSS Classes and Styles
+Create a button that, when clicked, toggles the appearance of a specific CSS class on an element using the "class" binding. Additionally, create an input field that changes the font size of a paragraph using the "style" binding.
